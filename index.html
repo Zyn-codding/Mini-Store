@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
@@ -20,26 +20,23 @@
       background:linear-gradient(180deg,#05060a 0%, #0a0f14 100%);
       font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, Arial;
       color:#fff;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
       display:flex;
       justify-content:center;
       padding:36px 12px;
     }
-
     .wrap{ width:100%; max-width:720px; }
 
-    .header{ text-align:center; margin-bottom:22px; }
-    .site-title{
-      font-size:44px; color:var(--accent); font-weight:700; display:inline-block;
-      padding:6px 4px; min-height:56px;
-    }
-    .cursor{ display:inline-block; width:4px; height:1.05em; background:var(--accent);
-      margin-left:6px; vertical-align:middle; animation:blink 1s steps(2,end) infinite;
-    }
+    /* Header / typing title */
+    .header{ text-align:center; margin-bottom:20px; }
+    .site-title{ font-size:44px; color:var(--accent); font-weight:700; display:inline-block; padding:6px 4px; min-height:56px; }
+    .cursor{ display:inline-block; width:4px; height:1.05em; background:var(--accent); margin-left:6px; vertical-align:middle; animation:blink 1s steps(2,end) infinite; }
     @keyframes blink{50%{opacity:0}}
     .subtitle{ color:var(--muted); margin-top:6px; font-size:15px }
 
+    /* Cards */
     .cards{ display:flex; flex-direction:column; gap:18px; margin-top:8px; }
-
     .card{
       border-radius:var(--radius);
       border:2px solid rgba(25,214,234,0.12);
@@ -48,45 +45,23 @@
       box-shadow:0 6px 18px rgba(0,0,0,0.6);
       display:flex; flex-direction:column; align-items:center;
     }
-    .icon{ width:72px; height:72px; border-radius:12px;
-      background:linear-gradient(180deg, rgba(25,214,234,0.12), rgba(17,199,232,0.08));
-      display:flex; align-items:center; justify-content:center; margin-bottom:12px;
-      color:var(--accent); font-weight:800; font-size:26px;
-    }
+    .icon{ width:72px; height:72px; border-radius:12px; background:linear-gradient(180deg, rgba(25,214,234,0.12), rgba(17,199,232,0.08)); display:flex; align-items:center; justify-content:center; margin-bottom:12px; color:var(--accent); font-weight:800; font-size:26px; }
     .card h3{ margin:6px 0 6px; font-size:20px; color:#fff; }
     .card p{ margin:0; color:var(--muted); font-size:14px }
-
-    .btn{
-      margin-top:14px; width:82%; max-width:420px; text-decoration:none;
-      background:var(--btn); color:#042022; font-weight:700; padding:12px 16px;
-      border-radius:12px; display:inline-block; text-align:center; transition:transform .12s ease;
-    }
+    .btn{ margin-top:14px; width:82%; max-width:420px; text-decoration:none; background:var(--btn); color:#042022; font-weight:700; padding:12px 16px; border-radius:12px; display:inline-block; text-align:center; transition:transform .12s ease; }
     .btn:active{ transform:translateY(1px) }
     .btn:hover{ box-shadow:0 10px 28px rgba(17,199,232,0.12) }
-
     footer{ margin-top:24px; text-align:center; color:var(--muted); font-size:13px; }
 
     /* Modal */
-    .modal-backdrop{
-      position:fixed; inset:0; background:rgba(0,0,0,0.6); display:none;
-      align-items:center; justify-content:center; z-index:1000; padding:20px;
-    }
-    .modal{
-      background:#091017; border-radius:12px; padding:18px; max-width:640px; width:100%;
-      border:2px solid rgba(25,214,234,0.12);
-      box-shadow:0 20px 60px rgba(0,0,0,0.7);
-    }
+    .modal-backdrop{ position:fixed; inset:0; background:rgba(0,0,0,0.6); display:none; align-items:center; justify-content:center; z-index:1000; padding:20px; }
+    .modal{ background:#091017; border-radius:12px; padding:18px; max-width:640px; width:100%; border:2px solid rgba(25,214,234,0.12); box-shadow:0 20px 60px rgba(0,0,0,0.7); }
     .modal h4{ margin:0 0 10px; color:var(--accent); }
-    .modal pre{
-      white-space:pre-wrap; word-break:break-word; font-family:inherit;
-      color:#e6f9fb; background:transparent; margin:6px 0 12px;
-    }
+    .modal pre{ white-space:pre-wrap; word-break:break-word; font-family:inherit; color:#e6f9fb; background:transparent; margin:6px 0 12px; }
     .modal .row{ display:flex; gap:10px; align-items:center; justify-content:flex-end; }
     .btn-ghost{ background:transparent; color:var(--muted); border:1px solid rgba(255,255,255,0.04); padding:8px 12px; border-radius:8px; cursor:pointer; }
     .btn-action{ background:var(--btn); color:#042022; padding:10px 14px; border-radius:10px; font-weight:700; text-decoration:none; }
-    @media (max-width:420px){
-      .site-title{ font-size:34px } .card{ padding:14px } .btn{ padding:10px 12px }
-    }
+    @media (max-width:420px){ .site-title{ font-size:34px } .card{ padding:14px } .btn{ padding:10px 12px } }
   </style>
 </head>
 <body>
@@ -98,66 +73,70 @@
 
     <main>
       <div class="cards">
-        <!-- Existing card -->
+        <!-- Card 1: List SC (tombol Cek Harga) -->
         <section class="card">
           <div class="icon">SC</div>
-          <h3>List SC</h3>
-          <p>List layanan & paket (contoh)</p>
-          <a class="btn" id="open-modal-1" href="javascript:void(0)">Lihat Nokos</a>
+          <h3 id="card1-title">List SC</h3>
+          <p id="card1-desc">SC Bot mulai dari harga 5k</p>
+          <a class="btn" id="open-modal-1" href="javascript:void(0)">Cek Harga</a>
         </section>
 
-        <!-- New card: Apk Editor (duplicate style) -->
+        <!-- Card 2: Apk Editor -->
         <section class="card">
           <div class="icon">AE</div>
-          <h3>Apk Editor</h3>
-          <p>Super murah</p>
+          <h3 id="card2-title">Apk Editor</h3>
+          <p id="card2-desc">Super murah</p>
           <a class="btn" id="open-modal-editor" href="javascript:void(0)">Cek Harga</a>
         </section>
 
-        <!-- New card: Apk JB -->
+        <!-- Card 3: Apk JB -->
         <section class="card">
           <div class="icon">JB</div>
-          <h3>Apk JB</h3>
-          <p>Super murah</p>
+          <h3 id="card3-title">Apk JB</h3>
+          <p id="card3-desc">Super murah</p>
           <a class="btn" id="open-modal-jb" href="javascript:void(0)">Cek Harga</a>
         </section>
       </div>
     </main>
 
     <footer>© Zyn2025 © TRUST</footer>
+
+    <!-- Tombol Join Channel -->
+    <div style="text-align:center; margin-top:16px;">
+      <a href="https://whatsapp.com/channel/0029VbBB0ks65yDEBMJATp1A" 
+         target="_blank" 
+         rel="noopener" 
+         class="btn" 
+         style="display:inline-block; max-width:260px;">
+        JOIN MY CHANNEL
+      </a>
+    </div>
   </div>
 
-  <!-- Modal backdrop (single reusable modal) -->
+  <!-- Modal backdrop -->
   <div class="modal-backdrop" id="modalBackdrop">
     <div class="modal" id="modalContent">
       <h4 id="modalTitle">Menu</h4>
-      <pre id="modalBody" style="min-height:140px"></pre>
+      <pre id="modalBody" style="min-height:150px"></pre>
       <div class="row">
         <button class="btn-ghost" id="closeModal">Tutup</button>
-        <!-- Pesan button: opens Telegram share with safe message. -->
         <a id="modalPesan" class="btn-action" href="#" target="_blank" rel="noopener">Pesan</a>
       </div>
     </div>
   </div>
 
   <script>
-    /**********************
-     * CONFIG
-     **********************/
     const titleText = "ZynHubz Store | PhantomBugz ID";
     const typingSpeed = 60;
 
-    // Telegram share (safe neutral message). Change message but keep legal.
-    const telegramMessage = encodeURIComponent("Halo, saya tertarik dengan layanan. Mohon info detail dan harga.");
-    function telegramShareLink(){ return `https://t.me/share/url?url=&text=${telegramMessage}`; }
+    const telegramUsername = "Zeinvador"; 
+    const defaultTelegramMsg = encodeURIComponent("Halo, saya tertarik dengan layanan. Mohon info harga dan detailnya.");
+    function telegramShareLinkWithMsg(msg){ return `https://t.me/share/url?url=&text=${encodeURIComponent(msg)}`; }
 
-    /**********************
-     * TYPING
-     **********************/
     const titleEl = document.getElementById("title");
     async function typeText(el, text, speed){
       el.textContent = "";
-      for (let i=0;i<text.length;i++){
+      for (let i = 0; i < text.length; i++){
         el.textContent += text[i];
         await new Promise(r => setTimeout(r, speed));
       }
@@ -166,12 +145,6 @@
       typeText(titleEl, titleText, typingSpeed);
     });
 
-    /**********************
-     * MODAL LOGIC
-     * We'll show different content per card.
-     * IMPORTANT: The content below is SAFE / GENERIC placeholder.
-     * Replace with your own LEGAL text if needed.
-     **********************/
     const backdrop = document.getElementById("modalBackdrop");
     const modalTitle = document.getElementById("modalTitle");
     const modalBody = document.getElementById("modalBody");
@@ -181,68 +154,69 @@
     function openModal(title, bodyText, prefillTelegram){
       modalTitle.textContent = title;
       modalBody.textContent = bodyText;
-      // prefills telegram message if provided, else default
-      const msg = prefillTelegram ? encodeURIComponent(prefillTelegram) : encodeURIComponent("Halo, saya tertarik dengan layanan. Mohon info detail dan harga.");
-      modalPesan.href = `https://t.me/share/url?url=&text=${msg}`;
+      const msg = prefillTelegram || decodeURIComponent(defaultTelegramMsg);
+      modalPesan.href = telegramShareLinkWithMsg(msg);
       backdrop.style.display = "flex";
     }
     function hideModal(){ backdrop.style.display = "none"; }
 
-    // Example safe menu content for "Lihat Nokos"
+    // Card 1
     document.getElementById("open-modal-1").addEventListener("click", ()=> {
       const body = [
-        "LIST NOMBOR (contoh):",
-        "- Nomer Indonesia (mulai 8K)",
-        "- Nomer Internasional (mulai 15K)",
+        "DAFTAR & HARGA (CONTOH - GANTI SENDIRI):",
+        "- Nuzx V7 (5K) — Paket contoh",
+        "- STAZKY Crash (10K) — Paket contoh",
+        "- Naruto (10K) — Paket contoh",
+        "- DITZXZ (5K) — Paket contoh", 
+        "- Crasher (10K) — Paket contoh", 
         "",
-        "Metode pembayaran: DANA, ShopeePay, GoPay",
+        "Pembayaran: DANA, ShopeePay, GoPay",
         "",
-        "Minat? Tekan Pesan untuk menghubungi via Telegram."
+        "Minat? Tekan 'Pesan' untuk menghubungi via Telegram."
       ].join("\n");
-      openModal("List Nokos - Info & Harga", body);
+      const prefill = "Halo, saya tertarik dengan paket sc bug wa, Mohon info lengkap dan cara beli.";
+      openModal("List Paket - Info & Harga", body, prefill);
     });
 
-    // Apk Editor modal (safe placeholder content)
+    // Card 2
     document.getElementById("open-modal-editor").addEventListener("click", ()=> {
       const body = [
         "APk EDITOR BY : ZYN",
         "",
-        "Kinemaster Premium (5K)",
-        "Capcut Premium (5K)",
-        "Alight Motion Premium (5K)",
+        "Kinemaster Premium (5K) — Paket contoh",
+        "Capcut Premium (5K) — Paket contoh",
+        "Alight Motion Premium (5K) — Paket contoh",
         "",
-        "PAYMENT:",
-        "(DANA, SHOPEEPAY, GOPAY)",
+        "PAYMENT: DANA, SHOPEEPAY, GOPAY",
         "",
-        "Minat? Tekan Pesan untuk mengirim pesan otomatis."
+        "Minat? Tekan 'Pesan' untuk menghubungi via Telegram."
       ].join("\n");
       const prefill = "Halo, saya tertarik dengan Apk Editor (Kinemaster/Capcut/Alight). Mohon info harga dan proses pembelian.";
       openModal("Apk Editor - Daftar & Harga", body, prefill);
     });
 
-    // Apk JB modal (safe placeholder content)
+    // Card 3
     document.getElementById("open-modal-jb").addEventListener("click", ()=> {
       const body = [
-        "Hello friend, want a super cheap app package? See below:",
+        "Halo — daftar paket (CONTOH):",
         "",
-        "Apk VideoEditor Beta (10K)",
-        "Apk Push Contact (5K)",
-        "MT Manager PRO (10K)",
-        "Apk PS Tools (5K)",
-        "ChatGPT Premium (5K)",
-        "Netflix Mod (10K)",
+        "Apk video editor Beta (10K)",
+        "Apk push kontak (5K)",
+        MT manager PRO (10K)",
+        "Apk ps (5K)",
+        "Chat GPT premium (10K)", 
+        "Netflix mod (15K)",
+        "Dan paket lain — ubah sesuai kebutuhanmu",
         "",
         "BY : ZYN",
-        "Minat? Tekan Pesan."
+        "Minat? Tekan 'Pesan' untuk menghubungi."
       ].join("\n");
-      const prefill = "Halo, saya ingin informasi paket Apk JB. Mohon detail dan harga.";
+      const prefill = "Halo, saya ingin info paket Apk JB. Mohon detail dan harga.";
       openModal("Apk JB - Paket & Harga", body, prefill);
     });
 
     closeModal.addEventListener("click", hideModal);
     backdrop.addEventListener("click", (e) => { if (e.target === backdrop) hideModal(); });
-
-    // Escape key to close
     window.addEventListener("keydown", (e) => { if (e.key === "Escape") hideModal(); });
   </script>
 </body>
